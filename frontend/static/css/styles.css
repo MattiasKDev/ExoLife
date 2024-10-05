@@ -88,8 +88,15 @@ canvas {
     position: absolute;
     top: 12vh;
     left: 0;
-    width: 1000;
-    height: 600;
     box-sizing: border-box;
     z-index: 10;
+}
+
+.infoBox {
+    position: absolute;
+    top: 12vh;
+    left: calc(70%);
+    /* Position it to the right of the canvas */
+    z-index: 11;
+    /* Ensure it is above the canvas */
 }

@@ -2,61 +2,56 @@
     {
         "id": 1,
         "name": "Exoplanet Alpha",
-        "x": 34.5,
-        "y": -23.4
+        "distance": 41.5
     },
     {
         "id": 2,
         "name": "Exoplanet Beta",
-        "x": 12.3,
-        "y": 45.6
+        "distance": 47.8
     },
     {
         "id": 3,
         "name": "Exoplanet Gamma",
-        "x": -56.7,
-        "y": 89.0
+        "distance": 1040.1
     },
     {
         "id": 4,
         "name": "Exoplanet Delta",
-        "x": 78.9,
-        "y": -12.3
+        "distance": 79.8
     },
     {
         "id": 5,
         "name": "Exoplanet Epsilon",
-        "x": 23.4,
-        "y": 67.8
+        "distance": 71.5
     },
     {
         "id": 6,
         "name": "Exoplanet Zeta",
-        "x": -45.6,
-        "y": 34.5
+        "distance": 57.8
     },
     {
         "id": 7,
         "name": "Exoplanet Eta",
-        "x": 90.1,
-        "y": -78.9
+        "distance": 119.2
     },
     {
         "id": 8,
         "name": "Exoplanet Theta",
-        "x": 56.7,
-        "y": 12.3
+        "distance": 57.9
     },
     {
         "id": 9,
         "name": "Exoplanet Iota",
-        "x": -89.0,
-        "y": 45.6
+        "distance": 99.9
     },
     {
         "id": 10,
         "name": "Exoplanet Kappa",
-        "x": 34.5,
-        "y": -67.8
+        "distance": 76.8
+    },
+    {
+        "id": 11,
+        "name": "Earth",
+        "distance": 0
     }
 ]
