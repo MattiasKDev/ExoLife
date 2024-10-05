@@ -4,8 +4,9 @@
 
 {% block content %}
 <h2>Welcome to the Home Page</h2>
-<div
-    style="position: relative; background-image: url('/static/images/spacebackground.jpeg'); background-size: cover; background-repeat: no-repeat; padding: 20px; height: 100vh;">
+<div class="backgroundimg">
     <p style="position: absolute; top: 20px; left: 20px; color: white;">Hello, World!</p>
+    <button style="position: absolute; bottom: 200px; left: 50%; transform: translateX(-50%);"
+        style="font-size: 24px; padding: 20px 40px;" href="/systemview">Explore</button>
 </div>
 {% endblock %}
