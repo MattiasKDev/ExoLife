@@ -3,7 +3,7 @@
 
 {% block content %}
 <div style="display: flex; align-items: flex-start;">
-    <canvas id="coordinateCanvas" width="1200" height="800"></canvas>
+    <canvas id="coordinateCanvas" width="1200" height="600"></canvas>
     <div id="infoBox" class="infoBox" style="margin-left: 20px;">
         <h3>Planet Info</h3>
         <p id="planetName">Name: </p>
@@ -30,7 +30,9 @@
         const x = ((point.x - minX) / (maxX - minX)) * canvasWidth;
         const y = ((point.y - minY) / (maxY - minY)) * canvasHeight;
         ctx.fillStyle = 'white';
-        ctx.fillRect(x, y, 5, 5);
+        ctx.beginPath();
+        ctx.arc(x, y, 2.5, 0, Math.PI * 2, true);
+        ctx.fill();
 
     });
 
@@ -47,6 +49,16 @@
             if (x >= scaledX && x <= scaledX + 10 && y >= scaledY && y <= scaledY + 10) {
                 updatePointInfo(point);
                 pointFound = true;
+                ctx.fillStyle = 'yellow';
+                ctx.beginPath();
+                ctx.arc(scaledX, scaledY, 2.5, 0, Math.PI * 2, true);
+                ctx.fill();
+            } else {
+                // Redraw the point in its original color if the mouse is not over it
+                ctx.fillStyle = 'white';
+                ctx.beginPath();
+                ctx.arc(scaledX, scaledY, 2.5, 0, Math.PI * 2, true);
+                ctx.fill();
             }
         });
     });
