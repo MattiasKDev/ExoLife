@@ -12,4 +12,9 @@ def get_data():
     return response.text
 
 
-print(get_data())
+def get_test_data():
+    response = requests.get(f"{API_URL}/test")
+    return response.json()
+
+
+print(get_test_data())
