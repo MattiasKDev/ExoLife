@@ -1,10 +1,52 @@
 {% extends "layout.html" %}
-
 {% block title %}Systemview{% endblock %}
 
 {% block content %}
 <h2>Welcome to the System View Page</h2>
-<div>
-    
-</div>
+
+<canvas id="coordinateCanvas" width="800" height="600" style="border:1px solid #000000;"></canvas>
+<script>
+    const exoplanetdata = JSON.parse('{{ data | tojson }}');
+    const canvas = document.getElementById('coordinateCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const canvasWidth = canvas.width;
+    const canvasHeight = canvas.height;
+
+    // Find the min and max x and y values in the data to scale the points
+    const minX = Math.min(...exoplanetdata.map(point => point.x));
+    const maxX = Math.max(...exoplanetdata.map(point => point.x));
+    const minY = Math.min(...exoplanetdata.map(point => point.y));
+    const maxY = Math.max(...exoplanetdata.map(point => point.y));
+
+    // Draw points on the canvas
+    exoplanetdata.forEach(point => {
+        const x = ((point.x - minX) / (maxX - minX)) * canvasWidth;
+        const y = ((point.y - minY) / (maxY - minY)) * canvasHeight;
+        ctx.fillStyle = 'white';
+        ctx.fillRect(x, y, 5, 5);
+
+    });
+
+    // Handle click events
+    canvas.addEventListener('click', function (event) {
+        const rect = canvas.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        exoplanetdata.forEach(point => {
+            const scaledX = ((point.x - minX) / (maxX - minX)) * canvasWidth;
+            const scaledY = ((point.y - minY) / (maxY - minY)) * canvasHeight;
+            if (x >= scaledX && x <= scaledX + 5 && y >= scaledY && y <= scaledY + 5) {
+                handlePointClick(point);
+            }
+        });
+    });
+
+    // Callback function for point click
+    function handlePointClick(point) {
+        alert(`Point clicked: X=${point.x}, Y=${point.y}\nName: ${point.name}`);
+        // Add your custom callback logic here
+    }
+</script>
 {% endblock %}

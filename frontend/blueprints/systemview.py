@@ -1,3 +1,4 @@
+import utils.planetgrab as pg
 from flask import Blueprint, render_template
 
 systemview = Blueprint("systemview", __name__, url_prefix="/systemview")
@@ -5,7 +6,8 @@ systemview = Blueprint("systemview", __name__, url_prefix="/systemview")
 
 @systemview.route("/")
 def index():
-    return render_template("systemview.html")
+    data = pg.get_test_data()
+    return render_template("systemview.html", data=data)
 
 
 blueprint = systemview
