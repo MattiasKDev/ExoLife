@@ -9,19 +9,23 @@
 </head>
 
 <body>
-    <header class="header">
+    <header>
         <div>
-            <div></div> <!-- This is a div for the navigation -->
-            <div>
-                <h1>ExoMappers</h1>
-            </div> <!-- This is a div for the logo -->
+            <nav>
+                <a href="{{ url_for('home.index') }}">Home</a>
+                <a href="{{ url_for('systemview.index') }}">System View</a>
+            </nav>
         </div>
+        <div>
+            <h1>ExoMappers</h1>
+        </div>
+        <div></div>
     </header>
     <main>
         {% block content %}{% endblock %}
     </main>
     <footer>
-        <p>&copy; 2024 ExoMappers>
+        <p>&copy; 2024 ExoMappers</p>
     </footer>
 </body>
 
