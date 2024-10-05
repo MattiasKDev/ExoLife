@@ -3,10 +3,6 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h2>Welcome to the Home Page</h2>
-<div class="backgroundimg">
-    <p style="position: absolute; top: 20px; left: 20px; color: white;">Hello, World!</p>
-    <button style="position: absolute; bottom: 200px; left: 50%; transform: translateX(-50%);"
-        style="font-size: 24px; padding: 20px 40px;" href="/systemview">Explore</button>
-</div>
+<div class="backgroundimg"></div>
+<a class="explore" href="{{ url_for('systemview.index') }}">Explore</a>
 {% endblock %}
