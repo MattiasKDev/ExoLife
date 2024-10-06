@@ -1,8 +1,7 @@
 import math
 
+import functions.function as function
 import numpy as np
-
-import backend.functions.function as function
 
 # Parameter for probability function needed
 planet_size_min = 1000 / 6371
