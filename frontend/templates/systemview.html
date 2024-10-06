@@ -30,7 +30,12 @@
     exoplanetdata.forEach(point => {
         const x = ((point.x - minX) / (maxX - minX)) * canvasWidth;
         const y = ((point.y - minY) / (maxY - minY)) * canvasHeight;
-        ctx.fillStyle = 'white';
+        if (point.PlanetName == "Earth") {
+            ctx.fillStyle = 'green';
+        }
+        else {
+            ctx.fillStyle = 'white';
+        }
         ctx.beginPath();
         ctx.arc(x, y, 2.5, 0, Math.PI * 2, true);
         ctx.fill();
@@ -56,7 +61,12 @@
                 ctx.fill();
             } else {
                 // Redraw the point in its original color if the mouse is not over it
-                ctx.fillStyle = 'white';
+                if (point.PlanetName == "Earth") {
+                    ctx.fillStyle = 'green';
+                }
+                else {
+                    ctx.fillStyle = 'white';
+                }
                 ctx.beginPath();
                 ctx.arc(scaledX, scaledY, 2.5, 0, Math.PI * 2, true);
                 ctx.fill();
