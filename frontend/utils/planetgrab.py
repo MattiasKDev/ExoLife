@@ -10,8 +10,8 @@ API_URL = os.getenv("API_URL")
 
 
 def get_data():
-    response = requests.get(API_URL)
-    return response.text
+    response = requests.get(f"{API_URL}/exohabitdata")
+    return add_cords(response.json())
 
 
 def get_test_data():
@@ -21,7 +21,8 @@ def get_test_data():
 
 def add_cords(data):
     for planet in data:
-        planet["x"], planet["y"] = create_x_y(planet["distance"])
+        print(planet)
+        planet["x"], planet["y"] = create_x_y(planet["Distance"])
     return data
 
 

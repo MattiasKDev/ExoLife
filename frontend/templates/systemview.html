@@ -8,6 +8,7 @@
         <h3>Planet Info</h3>
         <p id="planetName">Name: </p>
         <p id="planetCoordinates">Distance from Earth: </p>
+        <p id="habitability">Habitability: </p>
         <img id="planetImage" src="" alt="Planet Image" style="width: 100px; height: 100px; display: none;">
     </div>
 </div>
@@ -64,8 +65,9 @@
     });
 
     function updatePointInfo(point) {
-        document.getElementById('planetName').innerText = `Name: ${point.name}`;
-        document.getElementById('planetCoordinates').innerText = `Distance from Earth: ${point.distance}`;
+        document.getElementById('planetName').innerText = `Name: ${point.PlanetName}`;
+        document.getElementById('planetCoordinates').innerText = `Distance from Earth: ${point.Distance}`;
+        document.getElementById('habitability').innerText = `Habitability: ${point.Habitability_Prob}`;
         const planetImage = document.getElementById('planetImage');
         if (point.image) {
             planetImage.src = point.image;

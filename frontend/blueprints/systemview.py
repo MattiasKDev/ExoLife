@@ -6,7 +6,7 @@ systemview = Blueprint("systemview", __name__, url_prefix="/systemview")
 
 @systemview.route("/")
 def index():
-    data = pg.get_test_data()
+    data = pg.get_data()
     return render_template("systemview.html", data=data)
 
 
