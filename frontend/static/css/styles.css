@@ -25,6 +25,7 @@ body {
     background-color: #000;
 }
 
+label,
 p,
 a,
 h1,
@@ -99,4 +100,9 @@ canvas {
     /* Position it to the right of the canvas */
     z-index: 11;
     /* Ensure it is above the canvas */
+}
+
+input[type=text]:focus {
+    background-color: lightblue;
+    border: 3px solid #555;
 }
