@@ -7,7 +7,8 @@
     <canvas id="coordinateCanvas" width="1200" height="600"></canvas>
     <div id="infoBox" class="infoBox" style="margin-left: 20px;">
         <h3>Planet Info</h3>
-        <p id="planetName">Name: </p>
+        <p style="display: inline;">Name: </p>
+        <input type="text" value="tst" style="display: inline;" id="planetName" oninput="readpt(value)">
         <p id="hostName">Host: </p>
         <p id="planetCoordinates">Distance from Earth: </p>
         <p id="discovered">Discovered: </p>
@@ -65,7 +66,6 @@
                 ctx.arc(scaledX, scaledY, 2.5, 0, Math.PI * 2, true);
                 ctx.fill();
             } else {
-                // Redraw the point in its original color if the mouse is not over it
                 if (point.PlanetName == "Earth") {
                     ctx.fillStyle = 'green';
                     ctx.fillText('Earth', scaledX + 5, scaledY - 5);
@@ -81,8 +81,8 @@
     });
 
     function updatePointInfo(point) {
-        document.getElementById('planetName').innerText = `Name: ${point.PlanetName}`;
-        document.getElementById('hostName').innerText = `Name: ${point.HostName}`;
+        document.getElementById('planetName').value = `${point.PlanetName}`;
+        document.getElementById('hostName').innerText = `Host: ${point.HostName}`;
         document.getElementById('planetCoordinates').innerText = `Distance from Earth: ${point.Distance.toFixed(3)} parsecs`;
         document.getElementById('discovered').innerText = `Discovered: ${point.DisYear}`;
         document.getElementById('facility').innerText = `Facility: ${point.DisFacility}`;
@@ -98,6 +98,15 @@
         } else {
             habitabilityElement.style.color = 'green';
         }
+    }
+
+    function readpt(txt) {
+        exoplanetdata.forEach(pt => {
+            if (pt.PlanetName === txt) {
+                updatePointInfo(pt);
+            }
+        });
+        
     }
 </script>
 {% endblock %}
