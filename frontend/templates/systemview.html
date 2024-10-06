@@ -12,6 +12,8 @@
         <p id="planetCoordinates">Distance from Earth: </p>
         <p id="discovered">Discovered: </p>
         <p id="facility">Facility: </p>
+        <p id="radius">Radius: </p>
+        <p id="mass">Mass: </p>
         <p id="habitability">Habitability: </p>
     </div>
 </div>
@@ -80,9 +82,11 @@
     function updatePointInfo(point) {
         document.getElementById('planetName').innerText = `Name: ${point.PlanetName}`;
         document.getElementById('hostName').innerText = `Name: ${point.HostName}`;
-        document.getElementById('planetCoordinates').innerText = `Distance from Earth: ${point.Distance.toFixed(3)}`;
+        document.getElementById('planetCoordinates').innerText = `Distance from Earth: ${point.Distance.toFixed(3)} parsecs`;
         document.getElementById('discovered').innerText = `Discovered: ${point.DisYear}`;
         document.getElementById('facility').innerText = `Facility: ${point.DisFacility}`;
+        document.getElementById('radius').innerText = `Radius: ${point.Planet_Radius} RE`;
+        document.getElementById('mass').innerText = `Planet Mass: ${point.Planet_Mass} ME`;
         document.getElementById('habitability').innerText = `Habitability: ${point.Habitability_Prob.toFixed(3)}%`;
         const habitability = point.Habitability_Prob;
         const habitabilityElement = document.getElementById('habitability');
