@@ -17,8 +17,8 @@ def tryit():
 @home.route("/submit", methods=["POST"])
 def submit():
     data = request.form.to_dict()
-    habscore = hab.get_habitability(**data)
-    return jsonify(habscore=habscore)
+    habscore = round(hab.get_habitability(**data)["habitability_score"], 2)
+    return jsonify(habscore=f"{habscore}%")
 
 
 blueprint = home
