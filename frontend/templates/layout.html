@@ -2,50 +2,53 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}ExoLife{% endblock %}</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}ExoLife{% endblock %}</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="icon" type="image/x-icon" href="/static/images/favicon.png">
 </head>
 
 <script>
-    let lastScrollTop = 0;
-    const navbar = document.getElementById('navbar');
-  
-    window.addEventListener('scroll', function() {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  
-      if (scrollTop > lastScrollTop) {
-        // Scrolling down
-        navbar.style.top = '-50px'; // Adjust the value based on your navbar height
-      } else {
-        // Scrolling up
-        navbar.style.top = '0';
-      }
-  
-      lastScrollTop = scrollTop;
-    });
-  </script>
+  let lastScrollTop = 0;
+  const navbar = document.getElementById('navbar');
+
+  window.addEventListener('scroll', function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      // Scrolling down
+      navbar.style.top = '-50px'; // Adjust the value based on your navbar height
+    } else {
+      // Scrolling up
+      navbar.style.top = '0';
+    }
+
+    lastScrollTop = scrollTop;
+  });
+</script>
 
 <body>
-    <header>
-        <div class="navbar" id ="navbar">
-            <a href="{{ url_for('home.index') }}">Home</a>
-            <a href="{{ url_for('systemview.index') }}">System View</a>
-            <a href="{{ url_for('home.tryit') }}">Try it</a>
-        </div>
-        <div></div>
-    </header>
-    <main style="min-height: calc(85vh);">
+  <header>
+    <div class="navbar" id="navbar">
+      <a href="{{ url_for('home.index') }}">Home</a>
+      <a href="{{ url_for('systemview.index') }}">System View</a>
+      <a href="{{ url_for('home.tryit') }}">Try it</a>
+    </div>
+    <div></div>
+  </header>
+  <main style="min-height: calc(85vh);">
     {% block content %}{% endblock %}
-    </main>
-    <footer>
-        <p>&copy; 2024 ExoMappers</p>
-    </footer>
+  </main>
+  <footer>
+    <p>&copy; 2024 ExoMappers</p>
+  </footer>
 </body>
 
 </html>
