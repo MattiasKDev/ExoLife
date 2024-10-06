@@ -12,7 +12,7 @@
         <p id="planetCoordinates">Distance from Earth: </p>
         <p id="discovered">Discovered: </p>
         <p id="facility">Facility: </p>
-        <p id="habitability" style="color: green;">Habitability: </p>
+        <p id="habitability">Habitability: </p>
     </div>
 </div>
 <script>
@@ -81,15 +81,17 @@
         document.getElementById('planetName').innerText = `Name: ${point.PlanetName}`;
         document.getElementById('hostName').innerText = `Name: ${point.HostName}`;
         document.getElementById('planetCoordinates').innerText = `Distance from Earth: ${point.Distance.toFixed(3)}`;
-        document.getElementById('habitability').innerText = `Habitability: ${point.Habitability_Prob.toFixed(3)}%`;
         document.getElementById('discovered').innerText = `Discovered: ${point.DisYear}`;
         document.getElementById('facility').innerText = `Facility: ${point.DisFacility}`;
-        const planetImage = document.getElementById('planetImage');
-        if (point.image) {
-            planetImage.src = point.image;
-            planetImage.style.display = 'block';
+        document.getElementById('habitability').innerText = `Habitability: ${point.Habitability_Prob.toFixed(3)}%`;
+        const habitability = point.Habitability_Prob;
+        const habitabilityElement = document.getElementById('habitability');
+        if (habitability <= 10) {
+            habitabilityElement.style.color = 'red';
+        } else if (habitability <= 50) {
+            habitabilityElement.style.color = 'yellow';
         } else {
-            planetImage.style.display = 'none';
+            habitabilityElement.style.color = 'green';
         }
     }
 </script>
