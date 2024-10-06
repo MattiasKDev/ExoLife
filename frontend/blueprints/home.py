@@ -1,5 +1,5 @@
 import utils.habitable as hab
-from flask import Blueprint, render_template, request
+from flask import Blueprint, jsonify, render_template, request
 
 home = Blueprint("home", __name__, url_prefix="/")
 
@@ -18,8 +18,7 @@ def tryit():
 def submit():
     data = request.form.to_dict()
     habscore = hab.get_habitability(**data)
-    print(habscore)
-    return render_template("tryit.html", data=habscore)
+    return jsonify(habscore=habscore)
 
 
 blueprint = home

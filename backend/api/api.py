@@ -35,7 +35,10 @@ def habitability():
         return jsonify({"error": "Invalid input"}), 400
 
     try:
-        habitability_score = alg.calculate_habitability(input_data)
+        for key, value in input_data.items():
+            if key != "spectral_type":
+                input_data[key] = float(value)
+        habitability_score = alg.calc_habitability_prob(**input_data)
         return jsonify({"habitability_score": habitability_score})
     except Exception as e:
         return jsonify({"error": str(e)}), 500

@@ -4,7 +4,7 @@
 
 {% block content %}
 <div style="margin-top: 20vh; position: fixed;">
-    <form action="/submit" method="post">
+    <form id="tryit-form" method="POST">
         <div style="display: flex; align-items: center;">
             <label for="magnitude" style="width: 200px;">Magnitude:</label>
             <input type="text" id="magnitude" name="magnitude">
@@ -53,9 +53,26 @@
         <input type="submit" value="Submit">
     </form>
 
-    <div style="bottom: 80vh; margin-left: 60vw; display: flex; align-items: center;"><label for="result"
-            style="width: 200px;">Result:</label>
+    <div style="bottom: 80vh; margin-left: 60vw; display: flex; align-items: center;">
+        <label for="result" style="width: 200px;">Result:</label>
         <span id="result" name="result" style="margin-left: 10px;"></span>
     </div>
+
+    <script>
+        document.getElementById('tryit-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(this);
+            fetch('/submit', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').textContent = data.habscore.habitability_score;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
 </div>
 {% endblock %}
