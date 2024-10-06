@@ -3,10 +3,11 @@
 {% block title %}About{% endblock %}
 
 {% block content %}
-<div style="margin-top: 20vh; position: fixed;">
+<div class="bg">
+<div style="display:flex; margin-top: 20vh; position: fixed;">
     <form id="tryit-form" method="POST">
         <div style="display: flex; justify-content: space-between;">
-            <div>
+            <div class="column">
                 <h3>Stellar Parameters:</h3>
                 <div style="display: flex; align-items: center;">
                     <label for="magnitude" style="width: 200px;">Magnitude (in V):</label>
@@ -24,7 +25,7 @@
                 </div><br>
             </div>
 
-            <div>
+            <div class="column">
                 <h3>Planetary Parameters:</h3>
                 <div style="display: flex; align-items: center;">
                     <label for="OrbSM" style="width: 200px;">Semi Major Axis (in AU):</label>
@@ -41,7 +42,7 @@
                     <input type="text" id="planetEccentricity" name="planetEccentricity">
                 </div><br>
             </div>
-            <div>
+            <div class="column">
                 <h3>Weights:</h3>
                 <div style="display: flex; align-items: center;">
                     <label for="HZ_weight" style="width: 200px;">Habitable Zone Weight:</label>
@@ -63,13 +64,12 @@
         <input type="submit" value="Submit">
     </form>
 
-    <div style="bottom: 80vh; margin-left: 60vw; display: flex; align-items: center;">
+    <div>
         <label for="result" style="width: 200px;">Result:</label>
         <span id="result" name="result" style="margin-left: 10px;"></span>
     </div>
 </div>
-
-
+</div>
 
 <script>
     document.getElementById('tryit-form').addEventListener('submit', function (event) {

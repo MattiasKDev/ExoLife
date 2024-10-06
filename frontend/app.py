@@ -4,7 +4,6 @@ from flask import Flask, redirect
 app = Flask(__name__)
 app.register_blueprint(blueprints.home)
 app.register_blueprint(blueprints.systemview)
-app.register_blueprint(blueprints.about)
 
 
 @app.errorhandler(404)
