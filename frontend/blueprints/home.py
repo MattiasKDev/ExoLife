@@ -21,4 +21,9 @@ def submit():
     return jsonify(habscore=f"{habscore}%")
 
 
+@home.route("/faq")
+def faq():
+    return render_template("faq.html")
+
+
 blueprint = home
