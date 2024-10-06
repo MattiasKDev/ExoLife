@@ -99,7 +99,7 @@ h6 {
 }
 
 canvas {
-    border: 1px solid white;
+    /* border: 1px solid white; */
     position: absolute;
     top: 12vh;
     left: 0;
@@ -119,4 +119,14 @@ canvas {
 input[type=text]:focus {
     background-color: lightblue;
     border: 3px solid #555;
+}
+
+.bg{
+    background-image: url('/static/images/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    opacity: 0.5;
 }
