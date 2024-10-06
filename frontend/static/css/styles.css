@@ -87,7 +87,7 @@ h6 {
     /* text-align: center;
     position: absolute; */
     position: absolute;
-    top: 35%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Poppins', sans-serif;
@@ -132,5 +132,5 @@ input[type=text]:focus {
 }
 
 .column{
-    margin: 5px;
+    margin: 10px;
 }
