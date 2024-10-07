@@ -31,4 +31,9 @@ def demo():
     return render_template("demo.html")
 
 
+@home.route("/featured")
+def featured():
+    return render_template("featured.html")
+
+
 blueprint = home
