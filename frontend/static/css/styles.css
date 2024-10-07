@@ -138,7 +138,18 @@ input[type=text]:focus {
     height: 100vh;
     width: 100vw;
     z-index: -1;
-    opacity: 0.5;
+    opacity: 1;
+}
+
+.faq{
+    background-image: url('/static/images/background_faq.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    /* z-index: -1; */
+    opacity: 1;
+    background-size: 100% 100%;
 }
 
 .column{
