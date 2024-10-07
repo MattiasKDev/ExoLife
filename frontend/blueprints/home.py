@@ -26,4 +26,9 @@ def faq():
     return render_template("faq.html")
 
 
+@home.route("/demo")
+def demo():
+    return render_template("demo.html")
+
+
 blueprint = home
