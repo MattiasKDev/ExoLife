@@ -152,6 +152,17 @@ input[type=text]:focus {
     background-size: 100% 100%;
 }
 
+.featured{
+    background-image: url('/static/images/background_featured.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    /* z-index: -1; */
+    opacity: 1;
+    background-size: 100% 100%;
+}
+
 .column{
     margin: 10px;
 }
